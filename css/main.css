@@ -1,24 +1,12 @@
-body {
-  background-image: url("../images/Fondo.png");
-  background-attachment: fixed;
-  background-repeat: repeat;
-  color: #a0d3a7; }
-
-/**imagen miniatura de navbar **/
-header img {
-    margin-right: 10px;
-    margin-bottom: 5px;
-    vertical-align: middle;
-}
-
-html {
-  height: 100%; }
+footer {
+  grid-area: my-footer;
+  background-color: #82ad9c;
+  text-align: center; }
 
 main {
   margin: 0 auto;
   max-width: 1580px;
-  min-height: 140vh;
- }
+  min-height: 140vh; }
 
 header {
   grid-area: my-header;
@@ -57,29 +45,31 @@ section {
   line-height: 1.4;
   padding: 15px; }
 
-  
-footer {
-  grid-area: my-footer;
-  background-color: #82ad9c; 
-  text-align: center;
-}
+body {
+  background-image: url("../images/Fondo.png");
+  background-attachment: fixed;
+  background-repeat: repeat;
+  color: #a0d3a7; }
+
+/**imagen miniatura de navbar **/
+header img {
+  margin-right: 10px;
+  margin-bottom: 5px;
+  vertical-align: middle; }
+
+html {
+  height: 100%; }
 
 @media (min-width: 600px) and (max-width: 1000px) {
   main {
     grid-template-columns: 200px 1fr 200px;
     grid-template-rows: 150px 100px 1fr 100px;
-    grid-template-areas: "my-header my-header my-header"
- "my-nav my-nav my-nav"
- "my-aside my-section my-section"
- "my-footer my-footer my-footer"; } }
-
+    grid-template-areas: "my-header my-header my-header" "my-nav my-nav my-nav" "my-aside my-section my-section" "my-footer my-footer my-footer"; } }
 
 @media (min-width: 1001px) {
   main {
     grid-template-rows: 401px 1fr 100px;
-    grid-template-areas: "my-header my-header my-header"
- "my-nav my-section my-aside"
- "my-footer my-footer my-footer"; } }
+    grid-template-areas: "my-header my-header my-header" "my-nav my-section my-aside" "my-footer my-footer my-footer"; } }
 
 img {
   max-width: 100%;
@@ -93,9 +83,10 @@ img {
   display: flex;
   flex-direction: column;
   overflow-x: hidden; }
-  .card .card_content {
-    padding: 16px;
-    background: linear-gradient(to bottom left, #82ad9c 50%, #f49684 100%); }
+
+.card .card_content {
+  padding: 16px;
+  background: linear-gradient(to bottom left, #82ad9c 50%, #f49684 100%); }
 
 h1 {
   color: #8e5572;
@@ -133,9 +124,6 @@ h6 {
   text-align: start;
   font-size: 22px; }
 
-  .swal2-popup .swal2-styled:not([type='cancel']):not([type='submit']):not([type='checkbox']):not([type='radio']):hover {
-    background-color: #bfdc9c;
-    color: #3b3b3b;
-  }
-
-  
+.swal2-popup .swal2-styled:not([type='cancel']):not([type='submit']):not([type='checkbox']):not([type='radio']):hover {
+  background-color: #bfdc9c;
+  color: #3b3b3b; }
