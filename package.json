@@ -1,0 +1,26 @@
+{
+  "name": "jsproyectofinalvigne",
+  "version": "1.0.0",
+  "description": "Página dedicada a la venta de Periféricos# JSProyectoFinalVigne",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss scss/app.scss css/main.css",
+    "watch-css": "nodemon -e scss -x  \"npm run build-css\"" 
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YamiVigne/JSProyectoFinalVigne.git"
+  },
+  "author": "Vigne Yamila",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YamiVigne/JSProyectoFinalVigne/issues"
+  },
+  "homepage": "https://github.com/YamiVigne/JSProyectoFinalVigne#readme",
+  "devDependencies": {
+    "node-sass": "^8.0.0",
+    "nodemon": "^2.0.22"
+  }
+}

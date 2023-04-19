@@ -1,0 +1,92 @@
+body {
+    background-image: url("../images/Fondo.png");
+    background-attachment: fixed;
+    background-repeat: repeat;
+    color: #a0d3a7; }
+
+/**imagen miniatura de navbar **/
+header img {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    vertical-align: middle;
+}
+
+html {
+  height: 100%; }
+
+
+@media (min-width: 600px) and (max-width: 1000px) {
+    main {
+      grid-template-columns: 200px 1fr 200px;
+      grid-template-rows: 150px 100px 1fr 100px;
+      grid-template-areas: "my-header my-header my-header"
+   "my-nav my-nav my-nav"
+   "my-aside my-section my-section"
+   "my-footer my-footer my-footer"; } }
+  
+  
+@media (min-width: 1001px) {
+    main {
+      grid-template-rows: 401px 1fr 100px;
+      grid-template-areas: "my-header my-header my-header"
+   "my-nav my-section my-aside"
+   "my-footer my-footer my-footer"; } }
+  
+img {
+    max-width: 100%;
+    height: auto;
+    align-content: center; }
+  
+.card {
+    background: linear-gradient(to bottom left, #82ad9c 40%, #f49684 100%);
+    border-radius: 5px;
+    box-shadow: 6px 8px 2px 1px rgba(59, 21, 21, 0.336);
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; }
+    .card .card_content {
+      padding: 16px;
+      background: linear-gradient(to bottom left, #82ad9c 50%, #f49684 100%); }
+  
+
+      
+h1 {
+    color: #8e5572;
+    font-family: "Libre Baskerville", serif;
+    font-size: 28pt; }
+  
+h2 {
+    color: black;
+    font-family: "Libre Baskerville", serif;
+    text-align: center;
+    font-size: 16pt; }
+  
+h3 {
+    color: #BBBE64;
+    font-family: "Libre Baskerville", serif;
+    font-size: 16pt;
+    letter-spacing: 1.5pt; }
+  
+h4 {
+    font-family: "Libre Baskerville", serif;
+    color: #8e5572;
+    letter-spacing: 1.5pt;
+    text-align: start;
+    font-size: 16pt; }
+  
+h5 {
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-size: 16pt; }
+  
+h6 {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2.5pt;
+    text-align: start;
+    font-size: 22px; }
+  
+.swal2-popup .swal2-styled:not([type='cancel']):not([type='submit']):not([type='checkbox']):not([type='radio']):hover {
+    background-color: #bfdc9c;
+    color: #3b3b3b;
+}
