@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- / keywords -->
+    <meta name="description" content="Tienda Periféricos Center">
+    <meta name="keywords"  content="compras, perifericos, pc, accesorios, auricular, joystick">
+
+    <!-- / font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    
+    <!-- / bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <!-- / sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+
+    <title> PERIFÉRICOS CENTER </title>
+
+</head> 
+<body>
+
+    <header>
+      <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+        <a href="#" class="d-flex align-items-center text-dark text-decoration-none">
+          <img src="./images/logo.png" alt="Nombre de la tienda" height="32"> 
+        </a>
+  
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+          <a class="me-3 py-2 text-dark text-decoration-none" href="#">💸O F E R T A S </a>
+          <a class="me-3 py-2 text-dark text-decoration-none" href="#">❕P R O D U C T O S </a>
+          <a class="me-3 py-2 text-dark text-decoration-none" href="#">❔A Y U D A </a>
+        </nav>
+      </div>
+  
+      
+      <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <img src="./images/Banner.png">
+        <h2 class="display-4 fw-normal"> 
+        <p class="fs-5 text-muted"> Somos un e-commerce con más de una década de trayectoria y experiencia en el mercado de la tecnología. <br> 
+          Buscamos simplificar el proceso de compra al máximo para que puedas comprar desde tu hogar y recibir el producto en el menor plazo de entrega posible. <br>
+          Nos dedicamos a la comercialización de productos electrónicos de audio y video, accesorios para PC, Notebooks, tablets, cámaras y múltiples dispositivos. <br>
+          Orientados a brindar la mejor relación precio/pretaciones y una excelente atención a nuestra clientela para entablar una relación comercial duradera. <br>
+          Nuestra Misión es ofrecer un amplio surtido de productos electrónicos novedosos, sobre todo aquellos de última generación difíciles de conseguir en el mercado local, que cumplan las expectativas y necesidades de nuestros clientes a precios accesibles. <br>
+        </p> </h2>
+
+        <!-- Condiciones de compra -->
+        <div>
+          <img src="./images/condiciones-compr.png" class="sectorBanner d-block my-0" alt="Condiciones de compra">
+      </div>
+      
+    </header>
+  
+    <main>
+    <div id="divPerifericos" class="container d-flex flex-wrap justify-content-between mt-4">
+    </div>
+    
+  <div class="container">
+    <table id="cart" class="table table-hover table-condensed">
+              <thead>
+              <tr>
+                <th style="width:50%">Producto</th>
+                <th style="width:10%">Precio</th>
+                <th style="width:8%">Cantidad</th>
+                <th style="width:22%" class="text-center">Subtotal</th>
+                <th style="width:10%">Eliminar</th>
+              </tr>
+            </thead>
+            <tbody id="tablaCarrito">
+             
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="2" class="hidden-xs"></td>
+                <td class="hidden-xs text-center"><strong>Total</strong></td>
+                <td class="text-center"><strong id="totalCarrito"></strong></td>
+                <td><button onclick="finalizarCompra()" class="btn btn-success">Finalizar compra</button></td>
+              </tr>
+            </tfoot>
+          </table>
+  </div>
+
+    <div id="divPerifericos" class="container d-flex flex-wrap justify-content-between mt-4">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.14/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+  <div class="container py-3">
+
+
+    </main>
+  
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+      <div class="row">
+        <div class="col-12 col-md">
+          <img class="mb-2" src="./images/imag1.png">
+          <small class="d-block mb-3 text-muted">© 2023</small>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Preguntas Frecuentes</h5>
+          <ul class="list-unstyled text-small">
+            <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Realizar un pedido</a></li>
+            <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Formas de pago</a></li>
+            <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Envios</a></li>
+            <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Facturacion</a></li>
+            <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Postventa/Garantias</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5> Seguinos en </h5>
+          <ul class="list-unstyled text-small">
+            <li class="mb-1"><a class="link-secondary text-decoration-none" href="#"> Facebook </a></li>
+            <li class="mb-1"><a class="link-secondary text-decoration-none" href="#"> Instagram </a></li>
+            <li class="mb-1"><a class="link-secondary text-decoration-none" href="#"> Twitter </a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- / js -->
+  
+  <script src="js/index.js"></script>
+  <script src="js/product.js"></script>
+</body>
+</html>
