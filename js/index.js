@@ -3,6 +3,7 @@ const tablaCarrito = document.getElementById("tablaCarrito")
 const totalCarrito = document.getElementById("totalCarrito")
 let botonComprar = document.getElementById("comprar");
 
+if (document.body.id === "pagina-usuario") {
 function solicitarUsuario() {
     Swal.fire({
       title: "Bienvenido a Perifericos Center",
@@ -76,6 +77,7 @@ function solicitarUsuario() {
       });
     });
   }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     if (document.title === "PERIFÉRICOS CENTER") {
@@ -167,17 +169,37 @@ function incrementarCant(id) {
 }
 
 function restarCant(id) {
-    let carrito = capturarStorage();
-    const index = carrito.findIndex((e) => e.id == id); 
-    if (carrito[index].cantidad > 1) {
-      carrito[index].cantidad--; 
-      guardarStorage(carrito);
-      mostrarCarrito();
-      mostrarTotalCarrito();
-    } else {
-      carrito = confirm(`deseas eliminar ${carrito[index].marca} ${carrito[index].modelo} del carrito de compras`) && eliminarProductoCarrito(id);
-    }
+  let carrito = capturarStorage();
+  const index = carrito.findIndex((e) => e.id == id);
+  if (carrito[index].cantidad > 1) {
+    carrito[index].cantidad--;
+    guardarStorage(carrito);
+    mostrarCarrito();
+    mostrarTotalCarrito();
+  } else {
+    Swal.fire({
+      title: `¿Estás seguro que deseas eliminar ${carrito[index].marca} ${carrito[index].modelo} del carrito de compras?`,
+      background: '#b1dccb',
+      showDenyButton: true,
+      confirmButtonText: 'Sí',
+      denyButtonText: 'No',
+      customClass: {
+        actions: 'my-actions',
+        cancelButton: 'order-1 right-gap',
+        confirmButton: 'order-2',
+        denyButton: 'order-3',
+      },
+      icon: 'warning',
+      dangerMode: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        carrito = eliminarProductoCarrito(id);
+        mostrarCarrito();
+        mostrarTotalCarrito();
+      }
+    });
   }
+}
 
 function estaEnCarrito(id){
     let carrito = capturarStorage()
@@ -208,40 +230,63 @@ function finalizarCompra() {
   let total = mostrarTotalCarrito(); // Se obtiene el valor total
   
   // Se pregunta al usuario si desea realizar la compra
-  if (total === 0) {
-    alert("El carrito está vacío");
-  } else {
-    if (confirm(`¿Está seguro que desea realizar la compra por un total de $${total}?`)) {
-      alert("Serás redirigido para finalizar tu compra");
-
-      carrito = [];
-      guardarStorage(carrito);
-      
-      // Redirigir al usuario a la página de checkout
-      window.location.href = "./pages/cart.html"; // URL de la página a la que quieres redirigir al usuario
+    if (total === 0) {
+      Swal.fire('El carrito está vacío', '', 'warning');
+    } else {
+      Swal.fire({
+        title: `¿Está seguro que desea realizar la compra por un total de $${total}?`,
+        background: '#b1dccb',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        denyButtonText: 'No',
+        customClass: {
+          actions: 'my-actions',
+          cancelButton: 'order-1 right-gap',
+          confirmButton: 'order-2',
+          denyButton: 'order-3',
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire('Gracias por tu compra!!', '', 'success').then(() => {
+            carrito = [];
+            guardarStorage(carrito);
+          });
+        } else if (result.isDenied) {
+          Swal.fire('No se realizará la compra', '', 'info');
+        }
+      });
     }
-  }
 }
 
-// Completando formulario
-const formulario = document.querySelector('form');
+// Formulario
+// Selecciona el formulario y agrega un evento submit
+const form = document.querySelector('#contacto-formulario');
+form.addEventListener('submit', handleSubmit);
 
-formulario.addEventListener('submit', (event) => {
-  event.preventDefault(); // Evita que la página se recargue al enviar el formulario
-  
-  const nombreapellido = document.querySelector('#nombreapellido').value;
-  const dni = document.querySelector('#dni').value;
-  const cel = document.querySelector('#cel').value;
-  const correo = document.querySelector('#inputCorreo').value;
+// Función para manejar el envío del formulario
+function handleSubmit(event) {
+  event.preventDefault(); // Previene que el formulario se envíe automáticamente
+
+  // Obtiene los valores de los campos del formulario
+  const name = document.querySelector('#name').value;
+  const apellido = document.querySelector('#apellido').value;
   const direccion = document.querySelector('#direccion').value;
-  const ciudad = document.querySelector('#ciudad').value;
-  const cp = document.querySelector('#cp').value;
-    
-  console.log('Nombre y apellido:', nombreapellido);
-  console.log('DNI:', dni);
-  console.log('Teléfono:', cel);
-  console.log('Correo electrónico:', correo);
-  console.log('Dirección:', direccion);
-  console.log('Ciudad:', ciudad);
-  console.log('Código postal:', cp);
-});
+  const email = document.querySelector('#email').value;
+  const mensaje = document.querySelector('#mensaje').value;
+
+  // Crea un objeto con los datos del formulario
+  const formData = { name, apellido, direccion, email, mensaje };
+
+  // Envia los datos del formulario usando AJAX
+  // Aquí puedes agregar tu propia lógica para enviar los datos a un servidor
+  // En este ejemplo, simplemente mostramos una alerta con los datos del formulario
+  swal.fire({
+    title: 'Mensaje enviado con éxito',
+    html: `Name: ${name} <br> Apellido: ${apellido} <br> Dirección: ${direccion} <br> Email: ${email} <br> Mensaje: ${mensaje}`,
+    icon: 'success'
+  });
+
+  // Limpia el formulario después de enviarlo
+  form.reset();
+}
