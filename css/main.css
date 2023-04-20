@@ -97,7 +97,7 @@ h2 {
   color: black;
   font-family: "Libre Baskerville", serif;
   text-align: center;
-  font-size: 16pt; }
+  font-size: 18pt; }
 
 h3 {
   color: #BBBE64;
@@ -110,19 +110,19 @@ h4 {
   color: #8e5572;
   letter-spacing: 1.5pt;
   text-align: start;
-  font-size: 16pt; }
+  font-size: 14pt; }
 
 h5 {
   color: black;
   font-family: "Roboto", sans-serif;
-  font-size: 16pt; }
+  font-size: 13pt; }
 
 h6 {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   letter-spacing: 2.5pt;
   text-align: start;
-  font-size: 22px; }
+  font-size: 12pt; }
 
 .swal2-popup .swal2-styled:not([type='cancel']):not([type='submit']):not([type='checkbox']):not([type='radio']):hover {
   background-color: #bfdc9c;
